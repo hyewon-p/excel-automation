@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Combination Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Combination Generator</h1>
+
+    <!-- First Dataset -->
+    <div class="input-section first-dataset">
+      <div class="title-row">
+        <h3>First Dataset</h3>
+        <button onclick="addRow('sheet1-container', 'sheet1', 7)">
+          + Add Row
+        </button>
+      </div>
+      <!-- 파일 업로드 추가 -->
+      <input
+        type="file"
+        accept=".xlsx"
+        onchange="handleFileUpload(event, 'sheet1-container', 'sheet1', 7)"
+      />
+
+      <div class="label-row">
+        <div>A1</div>
+        <div>B1</div>
+        <div>C1</div>
+        <div>D1</div>
+        <div>E1</div>
+        <div>F1</div>
+        <div>G1</div>
+        <div></div>
+        <!-- 빈 공간 -->
+      </div>
+      <div id="sheet1-container">
+        <div class="input-row">
+          <input type="text" class="sheet1" />
+          <input type="text" class="sheet1" />
+          <input type="text" class="sheet1" />
+          <input type="text" class="sheet1" />
+          <input type="text" class="sheet1" />
+          <input type="text" class="sheet1" />
+          <input type="text" class="sheet1" />
+          <button class="delete-row-button" onclick="deleteRow(this)">
+            삭제
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Dataset -->
+    <div class="input-section second-dataset">
+      <div class="title-row">
+        <h3>Second Dataset</h3>
+        <button onclick="addRow('sheet2-container', 'sheet2', 6)">
+          + Add Row
+        </button>
+      </div>
+      <!-- 파일 업로드 추가 -->
+      <input
+        type="file"
+        accept=".xlsx"
+        onchange="handleFileUpload(event, 'sheet2-container', 'sheet2', 6)"
+      />
+
+      <div class="label-row">
+        <div>A2</div>
+        <div>B2</div>
+        <div>C2</div>
+        <div>D2</div>
+        <div>E2</div>
+        <div>F2</div>
+        <div></div>
+        <!-- 빈 공간 -->
+      </div>
+      <div id="sheet2-container">
+        <div class="input-row">
+          <input type="text" class="sheet2" />
+          <input type="text" class="sheet2" />
+          <input type="text" class="sheet2" />
+          <input type="text" class="sheet2" />
+          <input type="text" class="sheet2" />
+          <input type="text" class="sheet2" />
+          <button class="delete-row-button" onclick="deleteRow(this)">
+            삭제
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Third Dataset -->
+    <div class="input-section third-dataset">
+      <div class="title-row">
+        <h3>Third Dataset</h3>
+        <button onclick="addRow('sheet3-container', 'sheet3', 2)">
+          + Add Row
+        </button>
+      </div>
+      <!-- 파일 업로드 추가 -->
+      <input
+        type="file"
+        accept=".xlsx"
+        onchange="handleFileUpload(event, 'sheet3-container', 'sheet3', 2)"
+      />
+
+      <div class="label-row">
+        <div>A3</div>
+        <div>B3</div>
+        <div></div>
+        <!-- 빈 공간 -->
+      </div>
+      <div id="sheet3-container">
+        <div class="input-row">
+          <input type="text" class="sheet3" />
+          <input type="text" class="sheet3" />
+          <button class="delete-row-button" onclick="deleteRow(this)">
+            삭제
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Generate and Export Buttons -->
+    <div class="action-buttons">
+      <button onclick="generateCombinations()">Generate Combinations</button>
+      <button onclick="exportToExcel()">Export to Excel</button>
+    </div>
+
+    <!-- Results Table -->
+    <h2>Results</h2>
+    <table id="result-table">
+      <thead>
+        <tr id="result-header"></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <!-- xlsx 라이브러리 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
